@@ -20,7 +20,7 @@ export class BranchService {
     const allBranches = await this.branchModule.find({
       status: true,
     });
-    if (!allBranches) {
+    if (allBranches.length < 1) {
       throw new HttpException('Information not found', HttpStatus.NOT_FOUND);
     }
     return allBranches;
